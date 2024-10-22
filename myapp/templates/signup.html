@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">  <!-- Link to CSS -->
+</head>
+<body>
+    <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="signin">
+            <div class="content">
+                <h2>Signup</h2>
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <div class="form">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="inputBox">
+                            {{ form.username.label_tag }}
+                            {{ form.username }}
+                            <i>Username</i>
+                        </div>
+                        <div class="inputBox">
+                            {{ form.password1.label_tag }}
+                            {{ form.password1 }}
+                            <i>Password</i>
+                        </div>
+                        <div class="inputBox">
+                            {{ form.password2.label_tag }}
+                            {{ form.password2 }}
+                            <i>Confirm Password</i>
+                        </div>
+                        <div class="inputBox">
+                            <input type="submit" value="Signup">
+                        </div>
+                        <div class="links">
+                            <a href="{% url 'login' %}">Already have an account?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'index.js' %}"></script>  <!-- Link to JS -->
+</body>
+</html>

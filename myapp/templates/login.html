@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">  <!-- Link to CSS -->
+</head>
+<body>
+    <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="signin">
+            <div class="content">
+                <h2>Login</h2>
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <div class="form">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="inputBox">
+                            {{ form.username.label_tag }}
+                            {{ form.username }}
+                            <i>Username</i>
+                        </div>
+                        <div class="inputBox">
+                            {{ form.password.label_tag }}
+                            {{ form.password }}
+                            <i>Password</i>
+                        </div>
+                        <div class="links">
+                            <a href="{% url 'signup' %}">Don't have an account? Create one</a>
+                        </div>
+                        <div class="inputBox">
+                            <input type="submit" value="Login">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'index.js' %}"></script>  <!-- Link to JS -->
+</body>
+</html>

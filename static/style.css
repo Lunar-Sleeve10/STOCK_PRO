@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;  /* Background color for the body */
+}
+
+section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background Animation */
+section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#000, #0f0, #000);
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+/* Centered Signin Box */
+section .signin {
+    width: 400px;  /* Width of the sign-in box */
+    background: #222;  
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);  /* Box shadow for depth */
+}
+
+section .signin .content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;  /* Space between elements */
+}
+
+section .signin .content h2 {
+    font-size: 2em;
+    color: #0f0;  /* Title color */
+    text-transform: uppercase;  /* Uppercase text */
+}
+
+section .signin .content .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;  /* Space between input fields */
+}
+
+/* Input Box Styling */
+section .signin .content .form .inputBox {
+    position: relative;
+    width: 100%;
+}
+
+section .signin .content .form .inputBox input {
+    position: relative;
+    width: 100%;
+    background: #333;  /* Input background color */
+    border: none;
+    outline: none;
+    padding: 25px 10px 7.5px;
+    border-radius: 4px;  /* Rounded corners for inputs */
+    color: #fff;  /* Text color */
+    font-weight: 500;  /* Font weight */
+    font-size: 1em;  /* Font size */
+}
+
+/* Placeholder Icon Styling */
+section .signin .content .form .inputBox i {
+    position: absolute;
+    left: 0;
+    padding: 15px 10px;
+    font-style: normal;
+    color: #aaa;  /* Icon color */
+    transition: 0.5s;
+    pointer-events: none;  /* Prevent interaction */
+}
+
+.signin .content .form .inputBox input:focus ~ i,
+.signin .content .form .inputBox input:valid ~ i {
+    transform: translateY(-7.5px);
+    font-size: 0.8em;
+    color: #fff;  /* Change color on focus */
+}
+
+/* Links */
+.signin .content .form .links {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;  /* Space between links */
+}
+
+.signin .content .form .links a {
+    color: #fff;  /* Link color */
+    text-decoration: none;  /* No underline */
+}
+
+.signin .content .form .links a:nth-child(2) {
+    color: #0f0;  /* Color for signup link */
+    font-weight: 600;  /* Bold */
+}
+
+/* Submit Button Styling */
+.signin .content .form .inputBox input[type="submit"] {
+    padding: 10px;
+    background: #0f0;  /* Button background */
+    color: #000;  /* Button text color */
+    font-weight: 600;  /* Bold font */
+    font-size: 1.35em;  /* Larger font size */
+    letter-spacing: 0.05em;  /* Spacing */
+    cursor: pointer;  /* Pointer cursor */
+}
+
+input[type="submit"]:active {
+    opacity: 0.6;  /* Fade effect on click */
+}
+
+/* Message Box Styles */
+.messages {
+    list-style-type: none;      /* Remove bullet points */
+    padding: 0;                /* Remove default padding */
+    margin: 20px 0;            /* Add space above and below the message box */
+}
+
+.messages li {
+    background-color: #dff0d8; /* Light green background for success messages */
+    color: #3c763d;            /* Dark green text color */
+    padding: 10px;             /* Add padding inside the message box */
+    border-radius: 5px;        /* Rounded corners for a smoother look */
+    margin-bottom: 10px;       /* Space between messages */
+    border: 1px solid #b2dba1; /* Add a border to the message box */
+}
+
+/* Optional: Styles for error messages */
+.messages li.error {
+    background-color: #f2dede; /* Light red background for error messages */
+    color: #a94442;            /* Dark red text color */
+    border: 1px solid #ebccd1; /* Border for error messages */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 900px) {
+    section span {
+        width: calc(10vw - 2px);
+        height: calc(10vw - 2px);
+    }
+}
+
+@media (max-width: 600px) {
+    section span {
+        width: calc(20vw - 2px);
+        height: calc(20vw - 2px);
+    }
+}
